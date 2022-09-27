@@ -28,6 +28,7 @@ const Shop = () => {
 
     }, [products])
     const handlerAddToCart = (product) => {
+
         const newCart = [...cart, product]
         setCart(newCart)
         addToDb(product.id)

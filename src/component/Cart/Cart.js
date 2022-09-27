@@ -3,10 +3,14 @@ import './Cart.css'
 
 const Cart = (props) => {
     const { cart } = props
+    console.log(cart)
     let total = 0;
     let shipping = 0;
+    let quantity = 0;
     for (const product of cart) {
-        total = total + product.price
+
+        quantity = quantity + product.quantity
+        total = total + product.price * product.quantity
         shipping = shipping + product.shipping
 
     }
@@ -15,7 +19,7 @@ const Cart = (props) => {
     return (
         <div className='cart-body'>
             <h2>Order Sumary</h2>
-            <p>Selected Items: {cart.length}</p>
+            <p>Selected Items: {quantity}</p>
             <p>Total Price: ${total}</p>
             <p>Total Shiping Charge: ${shipping}</p>
             <p>Tax: ${tax}</p>
